@@ -2,16 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const date = require(__dirname + '/date.js');
 const mongoose = require('mongoose')
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
+const userName = process.env.USER_NAME;
+const password = process.env.PASSWORD;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //Connection URL
-mongoose.connect(`mongodb://localhost:27017/todolistDB`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://${userName}:${password}@cluster0.fudqe.mongodb.net/todolistDB?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const itemSchema = new mongoose.Schema({
     name: {
