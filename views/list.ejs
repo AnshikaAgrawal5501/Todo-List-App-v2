@@ -39,11 +39,11 @@
                 <div class="d-flex align-items-center flex-row ">
                     <input type="checkbox" class="m-2">
                     <p class="p-1 pl-3 mb-0">
-                        <%= newItems[i] %>
+                        <%= newItems[i].name %>
                     </p>
                 </div>
                 <div>
-                    <a href="/deleteItem/<%=i %>">
+                    <a href="/deleteItem/<%=newItems[i]._id %>">
                         <div class="delete d-flex align-items-center justify-content-center"><i class="fas fa-minus"></i></div>
                     </a>
                 </div>
